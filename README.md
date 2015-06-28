@@ -1,4 +1,5 @@
 # chef-local Docker Container
+[![Docker Repository on Quay.io](https://quay.io/repository/zuazo/chef-local/status "Docker Repository on Quay.io")](https://quay.io/repository/zuazo/chef-local)
 
 [Docker](https://www.docker.com/) image with [Chef](https://www.chef.io/) configured to make it easier to run cookbooks using chef in local mode (with *chef-zero*).
 
