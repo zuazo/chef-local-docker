@@ -1,13 +1,19 @@
 # chef-local Docker Container
 [![Docker Repository on Quay.io](https://quay.io/repository/zuazo/chef-local/status "Docker Repository on Quay.io")](https://quay.io/repository/zuazo/chef-local)
 
-[Docker](https://www.docker.com/) image with [Chef](https://www.chef.io/) configured to make it easier to run cookbooks using chef in local mode (with *chef-zero*).
+[Docker](https://www.docker.com/) images with [Chef](https://www.chef.io/) configured to make it easier to run cookbooks using chef in local mode (with *chef-zero*).
 
-The image comes with Chef `12.3.0` installed, also includes Berkshelf and git.
+The images come with Chef `12.3.0` installed, also include Berkshelf and git.
 
-## Install
+## Installation
 
     $ docker pull zuazo/chef-local:debian-7
+
+## Supported Tags
+
+* `debian-7`: A Debian Jessie image.
+* `ubuntu-12.04`: An Ubuntu Precise Pangolin LTS image.
+* `ubuntu-14.04`: An Ubuntu Trusty Tahr LTS image.
 
 ## Usage
 
@@ -24,12 +30,14 @@ COPY . /tmp/mycookbook
 RUN berks vendor -b /tmp/mycookbook/Berksfile $COOKBOOK_PATH
 # Run Chef Client, runs in local mode by default:
 RUN chef-client -r "recipe[apt],recipe[mycookbook]"
+
+# CMD to run you application
 ```
 
 Now you can create a Docker image and run your application:
 
     $ docker build -t mycookbook .
-    $ docker run -d mycookbook
+    $ docker run -d mycookbook bash
 
 The cookbook must have a *Berksfile* for this to work. You can use `$ berks init .` to generate a *Berksfile*. See the [Berkshelf](http://berkshelf.com/) documentation for more information.
 
@@ -88,15 +96,11 @@ See the [*examples/*](https://github.com/zuazo/chef-local-docker/tree/master/exa
 
 ### Build from Sources
 
-Instead of installing the image from Docker Hub, you can build the image from sources if you prefer:
+Instead of installing the image from Docker Hub, you can build the images from sources if you prefer:
 
     $ git clone https://github.com/zuazo/chef-local-docker chef-local
     $ cd chef-local/debian-7
     $ docker build -t zuazo/chef-local:debian-7 .
-
-## Supported Tags
-
-* `debian-7`: A Debian Jessie image.
 
 ## Defined Environment Variables
 

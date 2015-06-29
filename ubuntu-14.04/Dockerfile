@@ -1,4 +1,4 @@
-FROM debian:7
+FROM ubuntu:14.04
 MAINTAINER Xabier de Zuazo "xabier@zuazo.org"
 
 ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/chef/bin:/opt/chef/embedded/bin \
@@ -38,8 +38,8 @@ RUN /opt/chef/embedded/bin/gem install berkshelf --no-ri --no-rdoc
 # Configure locales
 RUN DEBIAN_FRONTEND=noninteractive \
     apt-get install $APT_ARGS \
-      locales \
-      locales-all && \
+      locales && \
+#      locales-all && \
     locale-gen en_US.UTF-8 && \
     update-locale LANG=en_US.UTF-8
 ENV LANG=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8
