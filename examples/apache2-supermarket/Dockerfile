@@ -1,7 +1,4 @@
-# Installs Apache httpd daemon using the apache2 cookbook from Supermarket
-
-FROM zuazo/chef-local:debian7
-# MAINTAINER Xabier de Zuazo "xabier@zuazo.org"
+FROM zuazo/chef-local:debian-7
 
 COPY . /tmp/apache2
 RUN berks vendor -b /tmp/apache2/Berksfile $COOKBOOK_PATH

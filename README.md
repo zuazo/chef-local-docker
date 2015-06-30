@@ -93,6 +93,42 @@ Then you can build your image and start your apache2 server installed with Chef:
 
 Now you can go to [http://localhost:8088](http://localhost:8088) to see your web server.
 
+### Changing Chef Cookbook Attribute Values
+
+You can add the Node attributes to change in a JSON file:
+
+```json
+{
+  "java": {
+    "jdk_version": "7"
+  }
+}
+```
+
+Then run `chef-client` with the `-j` option poiting to the JSON file:
+
+```Dockerfile
+FROM zuazo/chef-local:debian-7
+
+COPY Berksfile /tmp/java/Berksfile
+COPY attributes.json /tmp/attributes.json
+RUN berks vendor -b /tmp/java/Berksfile $COOKBOOK_PATH
+RUN chef-client -j /tmp/attributes.json -r "recipe[java]"
+
+ENTRYPOINT ["java"]
+CMD ["-version"]
+```
+
+Build the image and run it:
+
+    $ docker build -t chef-java .
+    $ docker run chef-java
+    java version "1.7.0_79"
+    OpenJDK Runtime Environment (IcedTea 2.5.5) (7u79-2.5.5-1~deb7u1)
+    OpenJDK 64-Bit Server VM (build 24.79-b02, mixed mode)
+
+### More Examples
+
 See the [*examples/*](https://github.com/zuazo/chef-local-docker/tree/master/examples) directory.
 
 ## Build from Sources
