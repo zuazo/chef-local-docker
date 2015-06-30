@@ -14,6 +14,7 @@ The images come with Chef `12.3.0` installed, also include Berkshelf and git.
 * `debian-7`: A Debian Jessie image.
 * `ubuntu-12.04`: An Ubuntu Precise Pangolin LTS image.
 * `ubuntu-14.04`: An Ubuntu Trusty Tahr LTS image.
+* `centos-6`: A CentOS 6 image.
 
 ## Usage
 
@@ -94,7 +95,7 @@ Now you can go to [http://localhost:8088](http://localhost:8088) to see your web
 
 See the [*examples/*](https://github.com/zuazo/chef-local-docker/tree/master/examples) directory.
 
-### Build from Sources
+## Build from Sources
 
 Instead of installing the image from Docker Hub, you can build the images from sources if you prefer:
 
