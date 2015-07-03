@@ -2,7 +2,7 @@ FROM debian:7
 MAINTAINER Xabier de Zuazo "xabier@zuazo.org"
 
 ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/chef/bin:/opt/chef/embedded/bin \
-    APT_ARGS="-y --no-install-recommends --no-upgrade" \
+    APT_ARGS="-y --no-install-recommends --no-upgrade -o Dpkg::Options::=--force-confnew" \
     CHEF_VERSION=12.3.0 \
     CHEF_REPO_PATH=/tmp/chef
 ENV COOKBOOK_PATH=$CHEF_REPO_PATH/cookbooks
@@ -36,11 +36,10 @@ RUN /opt/chef/embedded/bin/gem install berkshelf --no-ri --no-rdoc
 #     gem install berkshelf --no-ri --no-rdoc
 
 # Configure locales
-RUN DEBIAN_FRONTEND=noninteractive \
+RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
+    DEBIAN_FRONTEND=noninteractive \
     apt-get install $APT_ARGS \
-      locales \
-      locales-all && \
-    locale-gen en_US.UTF-8 && \
+      locales && \
     update-locale LANG=en_US.UTF-8
 ENV LANG=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8
 
