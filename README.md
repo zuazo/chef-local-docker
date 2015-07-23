@@ -3,7 +3,7 @@
 
 [Docker](https://www.docker.com/) images with [Chef](https://www.chef.io/) configured to make it easier to run cookbooks using chef in local mode (with *chef-zero*).
 
-The images come with Chef `12.3.0` installed, also include Berkshelf and git.
+The images come with Chef `12.4.1` installed, also include Berkshelf and git.
 
 ## Installation
 
@@ -143,7 +143,7 @@ Instead of installing the image from Docker Hub, you can build the images from s
 
 * `COOKBOOK_PATH`: Directory where the cookbooks should be copied
   (`/tmp/chef/cookbooks`).
-* `CHEF_VERSION`: Chef version to install (`12.3.0`).
+* `CHEF_VERSION`: Chef version to install (`12.4.1`).
 * `CHEF_REPO_PATH`: Chef main repository path (`/tmp/chef`).
 
 # License and Author

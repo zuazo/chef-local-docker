@@ -3,7 +3,7 @@ MAINTAINER Xabier de Zuazo "xabier@zuazo.org"
 
 ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/chef/bin:/opt/chef/embedded/bin \
     LANG=en_US.UTF-8 \
-    CHEF_VERSION=12.3.0 \
+    CHEF_VERSION=12.4.1 \
     CHEF_REPO_PATH=/tmp/chef
 ENV COOKBOOK_PATH=$CHEF_REPO_PATH/cookbooks
 
