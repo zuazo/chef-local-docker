@@ -13,9 +13,7 @@ RUN apt-get update && \
     apt-get install $APT_ARGS \
       ca-certificates \
       curl && \
-    curl -L -o /tmp/chef_install.sh https://www.opscode.com/chef/install.sh && \
-    bash /tmp/chef_install.sh -v $CHEF_VERSION && \
-    rm /tmp/chef_install.sh
+    curl -L https://www.chef.io/chef/install.sh | bash -s -- -v $CHEF_VERSION
 
 # Install some required packages for gem compilation
 RUN DEBIAN_FRONTEND=noninteractive \

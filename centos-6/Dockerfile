@@ -8,9 +8,7 @@ ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/chef/
 ENV COOKBOOK_PATH=$CHEF_REPO_PATH/cookbooks
 
 # Install chef-client
-RUN curl -L -o /tmp/chef_install.sh https://www.opscode.com/chef/install.sh && \
-    bash /tmp/chef_install.sh -v $CHEF_VERSION && \
-    rm /tmp/chef_install.sh
+RUN curl -L https://www.chef.io/chef/install.sh | bash -s -- -v $CHEF_VERSION
 
 # Install some required packages for gem compilation
 RUN yum install -y \
