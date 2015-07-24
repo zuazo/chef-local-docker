@@ -107,7 +107,7 @@ You can add the Node attributes to change in a JSON file:
 }
 ```
 
-Then run `chef-client` with the `-j` option poiting to the JSON file:
+Then run `chef-client` with the `-j` option pointing to the JSON file:
 
 ```Dockerfile
 FROM zuazo/chef-local:debian-7
