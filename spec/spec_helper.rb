@@ -30,7 +30,7 @@ class DockerLogger
   def print_chunk(chunk)
     chunk_json = parse_chunk(chunk)
     print_status(chunk_json['status'])
-    puts chunk_json['stream'] if chunk_json.key?('stream')
+    # puts chunk_json['stream'] if chunk_json.key?('stream')
   end
 end
 
