@@ -1,5 +1,7 @@
 # chef-local Docker Container
-[![Docker Repository on Quay.io](https://quay.io/repository/zuazo/chef-local/status "Docker Repository on Quay.io")](https://quay.io/repository/zuazo/chef-local)
+[![Source Code](https://img.shields.io/badge/source-GitHub-blue.svg?style=flat)](https://github.com/zuazo/chef-local-docker)&nbsp;
+[![Docker Repository on Quay.io](https://quay.io/repository/zuazo/chef-local/status "Docker Repository on Quay.io")](https://quay.io/repository/zuazo/chef-local)&nbsp;
+[![Build Status](http://img.shields.io/travis/zuazo/chef-local-docker.svg?style=flat)](https://travis-ci.org/zuazo/chef-local-docker)
 
 [Docker](https://www.docker.com/) images with [Chef](https://www.chef.io/) configured to make it easier to run cookbooks using chef in local mode (with *chef-zero*).
 

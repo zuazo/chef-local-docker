@@ -1,0 +1,15 @@
+language: ruby
+
+env:
+- DOCKERFILE_LOCATION=centos-6
+- DOCKERFILE_LOCATION=debian-7
+- DOCKERFILE_LOCATION=ubuntu-12.04
+- DOCKERFILE_LOCATION=ubuntu-14.04
+
+before_script:
+- source <(curl -sL https://raw.githubusercontent.com/zuazo/docker-in-travis/master/scripts/start_docker.sh)
+
+script:
+- bundle exec rake
+
+after_failure: cat docker_daemon.log
