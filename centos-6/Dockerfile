@@ -20,7 +20,7 @@ RUN yum install -y \
     yum clean all
 
 # Install berkshelf inside chef
-RUN /opt/chef/embedded/bin/gem install berkshelf --no-ri --no-rdoc
+RUN /opt/chef/embedded/bin/gem install berkshelf --no-ri --no-rdoc --verbose
 
 # Configure Chef Client
 RUN mkdir -p $COOKBOOK_PATH && \

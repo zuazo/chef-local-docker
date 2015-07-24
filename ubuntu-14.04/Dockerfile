@@ -24,7 +24,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
       make
 
 # Install berkshelf inside chef
-RUN /opt/chef/embedded/bin/gem install berkshelf --no-ri --no-rdoc
+RUN /opt/chef/embedded/bin/gem install berkshelf --no-ri --no-rdoc --verbose
 
 # Install berkshelf in the system (+40 MB)
 # RUN DEBIAN_FRONTEND=noninteractive \
