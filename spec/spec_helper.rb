@@ -23,9 +23,16 @@ module DockerContext
     dockerfile_location.nil? ? root : File.join(root, dockerfile_location)
   end
 
+  def print_log_chunk(chunk)
+    json = JSON.parse(chunk)
+    json.each { |key, value| puts "#{key.upcase}: #{value}" }
+  end
+
   # Returns the Docker::Image instance built from the Dockerfile.
   def image
-    @image ||= Docker::Image.build_from_dir(dockerfile_dir)
+    @image ||= Docker::Image.build_from_dir(dockerfile_dir) do |chunk|
+      print_log_chunk(chunk)
+    end
   end
 
   # Removes the temporary docker image used to run the tests.
