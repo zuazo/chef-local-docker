@@ -3,6 +3,37 @@ require 'docker'
 
 Docker.options[:read_timeout] = 50 * 60 # 50 mins
 
+# Print docker chunk logs.
+class DockerLogger
+  def intialize
+    @status = nil
+  end
+
+  def parse_chunk(chunk)
+    return chunk if chunk.is_a?(Hash)
+    JSON.parse(chunk)
+  rescue JSON::ParserError
+    { 'stream' => chunk }
+  end
+
+  def print_status(status)
+    if status != @status
+      puts
+      @status = status
+      print "#{status}." unless status.nil?
+    elsif ! status.nil?
+      print '.'
+    end
+    STDOUT.flush
+  end
+
+  def print_chunk(chunk)
+    chunk_json = parse_chunk(chunk)
+    print_status(chunk_json['status'])
+    puts chunk_json['stream'] if chunk_json.key?('stream')
+  end
+end
+
 # Module responsible for the creation and destruction of the docker image.
 module DockerContext
   extend RSpec::SharedContext
@@ -30,8 +61,9 @@ module DockerContext
 
   # Returns the Docker::Image instance built from the Dockerfile.
   def image
+    logger = DockerLogger.new
     @image ||= Docker::Image.build_from_dir(dockerfile_dir) do |chunk|
-      print_log_chunk(chunk)
+      logger.print_chunk(chunk)
     end
   end
 
