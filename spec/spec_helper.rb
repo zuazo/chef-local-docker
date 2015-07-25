@@ -21,7 +21,7 @@ class DockerLogger
       puts
       @status = status
       print "#{status}." unless status.nil?
-    elsif ! status.nil?
+    elsif !status.nil?
       print '.'
     end
     STDOUT.flush
@@ -30,7 +30,8 @@ class DockerLogger
   def print_chunk(chunk)
     chunk_json = parse_chunk(chunk)
     print_status(chunk_json['status'])
-    # puts chunk_json['stream'] if chunk_json.key?('stream')
+    return unless chunk_json.key?('stream')
+    puts chunk_json['stream']
   end
 end
 
