@@ -12,10 +12,6 @@ describe "Dockerfile build on #{ENV['DOCKERFILE_LOCATION']}" do
   context 'on environment' do
     let(:env_keys) { image_config['Env'].map { |x| x.split('=', 2)[0] } }
 
-    it 'sets Chef version' do
-      expect(env_keys).to include('CHEF_VERSION')
-    end
-
     it 'sets repository path' do
       expect(env_keys).to include('CHEF_REPO_PATH')
     end

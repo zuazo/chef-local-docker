@@ -3,7 +3,6 @@ MAINTAINER Xabier de Zuazo "xabier@zuazo.org"
 
 ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/chef/bin:/opt/chef/embedded/bin \
     APT_ARGS="-y --no-install-recommends --no-upgrade -o Dpkg::Options::=--force-confnew" \
-    CHEF_VERSION=12.4.1 \
     CHEF_REPO_PATH=/tmp/chef
 ENV COOKBOOK_PATH=$CHEF_REPO_PATH/cookbooks
 
@@ -13,25 +12,7 @@ RUN apt-get update && \
     apt-get install $APT_ARGS \
       ca-certificates \
       curl && \
-    curl -L https://www.chef.io/chef/install.sh | bash -s -- -v $CHEF_VERSION
-
-# Install some required packages for gem compilation
-RUN DEBIAN_FRONTEND=noninteractive \
-    apt-get install $APT_ARGS \
-      autoconf \
-      g++ \
-      gcc \
-      make
-
-# Install berkshelf inside chef
-RUN /opt/chef/embedded/bin/gem install berkshelf --no-ri --no-rdoc
-
-# Install berkshelf in the system (+40 MB)
-# RUN DEBIAN_FRONTEND=noninteractive \
-#     apt-get install $APT_ARGS \
-#       ruby \
-#       ruby-dev && \
-#     gem install berkshelf --no-ri --no-rdoc
+    curl -L --progress-bar https://www.chef.io/chef/install.sh | bash -s -- -P chefdk
 
 # Configure locales
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
@@ -57,10 +38,6 @@ RUN DEBIAN_FRONTEND=noninteractive \
 # Clean and remove not required packages
 RUN DEBIAN_FRONTEND=noninteractive \
     apt-get remove -y --purge \
-      autoconf \
-      g++ \
-      gcc \
-      make \
       curl && \
     DEBIAN_FRONTEND=noninteractive \
     apt-get autoremove -y && \
