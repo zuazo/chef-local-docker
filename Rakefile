@@ -5,9 +5,20 @@
 
 images = %w(
   centos-6
+  centos-7
+  centos-7-systemd
+  debian-6
   debian-7
+  debian-8
+  fedora-20
+  fedora-21
+  fedora-22
+  fedora-rawhide-systemd
   ubuntu-12.04
+  ubuntu-12.04-upstart
   ubuntu-14.04
+  ubuntu-14.04-upstart
+  ubuntu-15.04
 )
 
 require 'bundler/setup'
