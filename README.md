@@ -20,7 +20,6 @@ The images come with Chef `12` installed, also include Berkshelf and git.
 * `debian-7`: A Debian Wheezy image.
 * `debian-8`: A Debian Jessie image.
 * `fedora-20`: A Fedora Heissenbug image.
-* `fedora-21`: A Fedora 21 image.
 * `fedora-22`: A Fedora 22 image.
 * `fedora-rawhide-systemd`: A [Fedora Rawhide](https://fedoraproject.org/wiki/Releases/Rawhide) image (requires `--privileged`).
 * `ubuntu-12.04`: An Ubuntu Precise Pangolin **LTS** image.
@@ -139,6 +138,25 @@ Build the image and run it:
     java version "1.7.0_79"
     OpenJDK Runtime Environment (IcedTea 2.5.5) (7u79-2.5.5-1~deb7u1)
     OpenJDK 64-Bit Server VM (build 24.79-b02, mixed mode)
+
+### Using Systemd Images
+
+You need to create a *Dockerfile* similar to the following:
+
+```Dockerfile
+FROM zuazo/chef-local:centos-7-systemd
+
+# Install your application here:
+# [...]
+
+# Start systemd:
+CMD ["/usr/sbin/init"]
+```
+
+Then, you can build the image and run it in privileged mode:
+
+  $ docker build -t local/c7-systemd-myapp .
+  $ docker run --privileged -ti -v /sys/fs/cgroup:/sys/fs/cgroup:ro -p 80:80 local/c7-systemd-myapp
 
 ### More Examples
 
