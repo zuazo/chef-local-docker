@@ -155,8 +155,8 @@ CMD ["/usr/sbin/init"]
 
 Then, you can build the image and run it in privileged mode:
 
-  $ docker build -t local/c7-systemd-myapp .
-  $ docker run --privileged -ti -v /sys/fs/cgroup:/sys/fs/cgroup:ro -p 80:80 local/c7-systemd-myapp
+    $ docker build -t local/c7-systemd-myapp .
+    $ docker run --privileged -ti -v /sys/fs/cgroup:/sys/fs/cgroup:ro -p 80:80 local/c7-systemd-myapp
 
 ### More Examples
 
