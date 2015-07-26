@@ -15,13 +15,13 @@ The images come with Chef `12` installed, also include Berkshelf and git.
 
 * `centos-6`: A CentOS 6 image.
 * `centos-7`: A CentOS 7 image.
-* `centos-7-systemd`: A CentOS 7 image with systemd (requires `--privileged`).
+* `centos-7-systemd`: A CentOS 7 image with systemd (requires `--privileged`, see below).
 * `debian-6`: A Debian Squeeze image.
 * `debian-7`: A Debian Wheezy image.
 * `debian-8`: A Debian Jessie image.
 * `fedora-20`: A Fedora Heissenbug image.
 * `fedora-22`: A Fedora 22 image.
-* `fedora-rawhide-systemd`: A [Fedora Rawhide](https://fedoraproject.org/wiki/Releases/Rawhide) image (requires `--privileged`).
+* `fedora-rawhide-systemd`: A [Fedora Rawhide](https://fedoraproject.org/wiki/Releases/Rawhide) image (requires `--privileged`, see below).
 * `ubuntu-12.04`: An Ubuntu Precise Pangolin **LTS** image.
 * `ubuntu-12.04-upstart`: An Ubuntu Precise Pangolin **LTS** image with Upstart.
 * `ubuntu-14.04`: An Ubuntu Trusty Tahr **LTS** image.
@@ -156,7 +156,7 @@ CMD ["/usr/sbin/init"]
 Then, you can build the image and run it in privileged mode:
 
     $ docker build -t local/c7-systemd-myapp .
-    $ docker run --privileged -ti -v /sys/fs/cgroup:/sys/fs/cgroup:ro -p 80:80 local/c7-systemd-myapp
+    $ docker run --privileged -ti -v /sys/fs/cgroup:/sys/fs/cgroup:ro local/c7-systemd-myapp
 
 ### More Examples
 
