@@ -37,9 +37,6 @@ RUN DEBIAN_FRONTEND=noninteractive \
 
 # Clean and remove not required packages
 RUN DEBIAN_FRONTEND=noninteractive \
-    apt-get remove -y --purge \
-      curl && \
-    DEBIAN_FRONTEND=noninteractive \
     apt-get autoremove -y && \
     rm -rf /var/cache/apt/archives/*
 
