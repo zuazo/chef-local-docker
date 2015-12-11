@@ -1,6 +1,8 @@
 language: ruby
 
-sudo: true
+sudo: required
+
+services: docker
 
 env:
 - DOCKERFILE_LOCATION=centos-6
@@ -18,10 +20,4 @@ env:
 - DOCKERFILE_LOCATION=ubuntu-14.04-upstart
 - DOCKERFILE_LOCATION=ubuntu-15.04
 
-before_script:
-- source <(curl -sL https://raw.githubusercontent.com/zuazo/docker-in-travis/master/scripts/start_docker.sh)
-
-script:
-- bundle exec rspec
-
-after_failure: cat docker_daemon.log
+script: travis_retry bundle exec rspec
