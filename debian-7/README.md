@@ -25,6 +25,7 @@ The images come with Chef `12` installed, also include Berkshelf and git.
 * `ubuntu-14.04`: An Ubuntu Trusty Tahr **LTS** image.
 * `ubuntu-14.04-upstart`: An Ubuntu Trusty Tahr **LTS** image with Upstart.
 * `ubuntu-15.04`: An Ubuntu Vivid Vervet image.
+* `ubuntu-15.10`: An Ubuntu Wily Werewolf image.
 
 ## Usage
 
