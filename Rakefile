@@ -31,6 +31,8 @@ images.each do |image|
   desc "Test #{image} image"
   task image do
     ENV['DOCKERFILE_LOCATION'] = image
+    puts "Testing #{image} image"
+    puts "----------------------\n"
     RSpec::Core::RakeTask.new(image)
   end
 end

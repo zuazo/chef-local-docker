@@ -1,0 +1,18 @@
+FROM <%= @from %>
+
+RUN git clone https://github.com/zuazo/netstat-cookbook.git /tmp/netstat
+RUN berks vendor -b /tmp/netstat/Berksfile $COOKBOOK_PATH
+RUN chef-client -r "recipe[apt],recipe[netstat]"
+
+<% if @from.match(/(debian|ubuntu)/) -%>
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive \
+    apt-get install $APT_ARGS procps && \
+    apt-get autoremove -y && \
+    rm -rf /var/cache/apt/archives/*
+<% end -%>
+
+RUN useradd -s /bin/sh netstat
+
+USER netstat
+CMD ["netstat", "-tunac"]

@@ -3,7 +3,5 @@
 
 source 'https://rubygems.org'
 
+gem 'rake'
 gem 'dockerspec', '~> 0.2.0'
-
-# You should_not start your specs with the string "should"
-gem 'should_not', '~> 1.1'
