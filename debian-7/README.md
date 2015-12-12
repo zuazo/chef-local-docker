@@ -1,15 +1,15 @@
-## chef-local Docker Container
+### chef-local Docker Container
 [![GitHub](http://img.shields.io/badge/github-zuazo/chef--local--docker-blue.svg?style=flat)](https://github.com/zuazo/chef-local-docker) [![Docker Repository on Quay.io](https://quay.io/repository/zuazo/chef-local/status "Docker Repository on Quay.io")](https://quay.io/repository/zuazo/chef-local) [![Build Status](http://img.shields.io/travis/zuazo/chef-local-docker.svg?style=flat)](https://travis-ci.org/zuazo/chef-local-docker)
 
 [Docker](https://www.docker.com/) images with [Chef](https://www.chef.io/) configured to make it easier to run cookbooks using chef in local mode (with *chef-zero*).
 
 The images come with Chef `12` installed, also include Berkshelf and git.
 
-### Installation
+#### Installation
 
     $ docker pull zuazo/chef-local:debian-7
 
-### Supported Tags
+#### Supported Tags
 
 * `centos-6`: A CentOS 6 image.
 * `centos-7`: A CentOS 7 image.
@@ -26,9 +26,9 @@ The images come with Chef `12` installed, also include Berkshelf and git.
 * `ubuntu-15.04`: An Ubuntu Vivid Vervet image.
 * `ubuntu-15.10`: An Ubuntu Wily Werewolf image.
 
-### Usage
+#### Usage
 
-#### Running a Cookbook from the Current Directory
+##### Running a Cookbook from the Current Directory
 
 You can include the following *Dockerfile* in your cookbooks to run them inside a Docker container:
 
@@ -52,7 +52,7 @@ Now you can create a Docker image and run your application:
 
 The cookbook must have a *Berksfile* for this to work. You can use `$ berks init .` to generate a *Berksfile*. See the [Berkshelf](http://berkshelf.com/) documentation for more information.
 
-#### Running a Cookbook from GitHub
+##### Running a Cookbook from GitHub
 
 For example, you can user the following *Dockerfile* to install Nginx:
 
@@ -73,7 +73,7 @@ Then you can build your image and start your Nginx server:
 
 Now you can go to [http://localhost:8080](http://localhost:8080) to see your gorgeous web server.
 
-#### Running Cookbooks from a Berksfile
+##### Running Cookbooks from a Berksfile
 
 You can use a *Berksfile* to run cookbooks if you prefer.
 
@@ -103,7 +103,7 @@ Then you can build your image and start your apache2 server installed with Chef:
 
 Now you can go to [http://localhost:8088](http://localhost:8088) to see your web server.
 
-#### Changing Chef Cookbook Attribute Values
+##### Changing Chef Cookbook Attribute Values
 
 You can add the Node attributes to change in a JSON file:
 
@@ -137,7 +137,7 @@ Build the image and run it:
     OpenJDK Runtime Environment (IcedTea 2.5.5) (7u79-2.5.5-1~deb7u1)
     OpenJDK 64-Bit Server VM (build 24.79-b02, mixed mode)
 
-#### Using Systemd Images
+##### Using Systemd Images
 
 You need to create a *Dockerfile* similar to the following:
 
@@ -156,11 +156,11 @@ Then, you can build the image and run it in privileged mode:
     $ docker build -t local/c7-systemd-myapp .
     $ docker run --privileged -ti -v /sys/fs/cgroup:/sys/fs/cgroup:ro local/c7-systemd-myapp
 
-#### More Examples
+##### More Examples
 
 See the [*examples/*](https://github.com/zuazo/chef-local-docker/tree/master/examples) directory.
 
-### Build from Sources
+#### Build from Sources
 
 Instead of installing the image from Docker Hub, you can build the images from sources if you prefer:
 
@@ -168,13 +168,13 @@ Instead of installing the image from Docker Hub, you can build the images from s
     $ cd chef-local/debian-7
     $ docker build -t zuazo/chef-local:debian-7 .
 
-### Defined Environment Variables
+#### Defined Environment Variables
 
 * `COOKBOOK_PATH`: Directory where the cookbooks should be copied
   (`/tmp/chef/cookbooks`).
 * `CHEF_REPO_PATH`: Chef main repository path (`/tmp/chef`).
 
-## License and Author
+### License and Author
 
 |                      |                                          |
 |:---------------------|:-----------------------------------------|
