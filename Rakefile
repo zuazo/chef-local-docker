@@ -11,7 +11,6 @@ images = %w(
   debian-7
   debian-8
   fedora-20
-  fedora-22
   fedora-rawhide-systemd
   ubuntu-12.04
   ubuntu-12.04-upstart
