@@ -9,8 +9,8 @@ describe docker_build(path, tag: 'chef-local') do
   it { should have_env 'COOKBOOK_PATH' }
 
   describe docker_run('chef-local') do
-    it 'installs Chef Client version 12' do
-      expect(command('chef-client --version').stdout).to match(/^Chef: 12\./)
+    it 'installs Chef Client version 13' do
+      expect(command('chef-client --version').stdout).to match(/^Chef: 13\./)
     end
 
     it 'installs berks' do

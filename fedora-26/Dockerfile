@@ -1,4 +1,4 @@
-FROM milcom/centos7-systemd
+FROM fedora:26
 MAINTAINER Xabier de Zuazo "xabier@zuazo.org"
 
 ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/chef/bin:/opt/chef/embedded/bin \

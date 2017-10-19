@@ -1,5 +1,4 @@
-FROM ubuntu:15.04
-MAINTAINER Xabier de Zuazo "xabier@zuazo.org"
+FROM ubuntu:17.04
 
 ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/chef/bin:/opt/chef/embedded/bin \
     APT_ARGS="-y --no-install-recommends --no-upgrade" \
@@ -33,7 +32,8 @@ RUN mkdir -p $COOKBOOK_PATH && \
 # Some optional but recommended packages (+33 MB)
 RUN DEBIAN_FRONTEND=noninteractive \
     apt-get install $APT_ARGS \
-       git
+    git \
+    iproute2
 
 # Clean and remove not required packages
 RUN DEBIAN_FRONTEND=noninteractive \

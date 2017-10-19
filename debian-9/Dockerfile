@@ -1,8 +1,7 @@
-FROM ubuntu:15.10
-MAINTAINER Xabier de Zuazo "xabier@zuazo.org"
+FROM debian:9
 
 ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/chef/bin:/opt/chef/embedded/bin \
-    APT_ARGS="-y --no-install-recommends --no-upgrade" \
+    APT_ARGS="-y --no-install-recommends --no-upgrade -o Dpkg::Options::=--force-confnew" \
     CHEF_REPO_PATH=/tmp/chef
 ENV COOKBOOK_PATH=$CHEF_REPO_PATH/cookbooks
 
@@ -15,10 +14,10 @@ RUN apt-get update && \
     curl -L --progress-bar https://www.chef.io/chef/install.sh | bash -s -- -P chefdk
 
 # Configure locales
-RUN DEBIAN_FRONTEND=noninteractive \
+RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
+    DEBIAN_FRONTEND=noninteractive \
     apt-get install $APT_ARGS \
       locales && \
-    locale-gen en_US.UTF-8 && \
     update-locale LANG=en_US.UTF-8
 ENV LANG=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8
 
