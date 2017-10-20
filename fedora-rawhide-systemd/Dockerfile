@@ -18,8 +18,9 @@ RUN mkdir -p $COOKBOOK_PATH && \
     ln /etc/chef/client.rb ~/.chef/config.rb
 
 # Some optional but recommended packages
-RUN yum install -y \
-      git && \
-    yum clean all
+RUN dnf install -y \
+      git \
+      hostname && \
+    dnf clean all
 
 CMD ["bash"]

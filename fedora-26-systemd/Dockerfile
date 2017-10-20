@@ -19,7 +19,8 @@ RUN mkdir -p $COOKBOOK_PATH && \
 
 # Some optional but recommended packages
 RUN yum install -y \
-      git && \
+      git \
+      hostname && \
     yum clean all
 
 CMD ["bash"]
