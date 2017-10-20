@@ -3,22 +3,23 @@
 
 # More info at https://github.com/ruby/rake/blob/master/doc/rakefile.rdoc
 
-images = %w(
+images = %w[
   centos-6
   centos-7
   centos-7-systemd
-  debian-6
   debian-7
   debian-8
+  debian-9
   fedora-20
+  fedora-26
   fedora-rawhide-systemd
   ubuntu-12.04
   ubuntu-12.04-upstart
   ubuntu-14.04
   ubuntu-14.04-upstart
-  ubuntu-15.04
-  ubuntu-15.10
-)
+  ubuntu-16.04
+  ubuntu-17.04
+]
 
 require 'bundler/setup'
 require 'rspec/core/rake_task'
@@ -40,4 +41,4 @@ end
 desc 'Test all images'
 task test: images
 
-task default: %w(rspec)
+task default: %w[rspec]
