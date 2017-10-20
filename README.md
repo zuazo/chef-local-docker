@@ -178,6 +178,7 @@ Instead of installing the image from Docker Hub, you can build the images from s
 
 |                      |                                          |
 |:---------------------|:-----------------------------------------|
+| **Contributor:**     | [Bruce Emehiser](https://github.com/bemehiser)
 | **Author:**          | [Xabier de Zuazo](https://github.com/zuazo) (xabier@zuazo.org)
 | **Copyright:**       | Copyright (c) 2015
 | **License:**         | Apache License, Version 2.0
