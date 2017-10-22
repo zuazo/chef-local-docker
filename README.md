@@ -17,7 +17,7 @@ The images come with Chef `13` installed, and also include Berkshelf and git.
 * `debian-7`: A Debian Wheezy image.
 * `debian-8`: A Debian Jessie image.
 * `fedora-26`: A Fedora Heissenbug image.
-* `fedora-26`: A Fedora 26 image.
+* `fedora-26-systemd`: A Fedora 26 image.
 * `fedora-rawhide-systemd`: A [Fedora Rawhide](https://fedoraproject.org/wiki/Releases/Rawhide) image with systemd (requires `--privileged`, see below).
 * `ubuntu-12.04`: An Ubuntu Precise Pangolin **LTS** image.
 * `ubuntu-12.04-upstart`: An Ubuntu Precise Pangolin **LTS** image with Upstart.
