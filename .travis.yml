@@ -19,5 +19,6 @@ env:
 - DOCKERFILE_LOCATION=ubuntu-14.04-upstart
 - DOCKERFILE_LOCATION=ubuntu-16.04
 - DOCKERFILE_LOCATION=ubuntu-17.04
+- DOCKERFILE_LOCATION=ubuntu-18.04
 
 script: travis_retry bundle exec rspec

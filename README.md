@@ -25,6 +25,7 @@ The images come with Chef `13` installed, and also include Berkshelf and git.
 * `ubuntu-14.04-upstart`: An Ubuntu Trusty Tahr **LTS** image with Upstart.
 * `ubuntu-16.04`: An Ubuntu Xenial Xerus image.
 * `ubuntu-17.04`: An Ubuntu Zesty Zapus image.
+* `ubuntu-18.04`: An Ubuntu Bionic Beaver image.
 
 #### Usage
 
