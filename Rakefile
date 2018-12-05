@@ -19,6 +19,7 @@ images = %w[
   ubuntu-14.04-upstart
   ubuntu-16.04
   ubuntu-17.04
+  ubuntu-18.04
 ]
 
 require 'bundler/setup'
